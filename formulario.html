@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="/asset/css/style.css" rel="stylesheet" type="text/css">
+    <title>Formulario</title>
+</head>
+<body>
+
+    <!-- Encabezado de Bootstrap -->
+
+    <div class="container-fluid p-5 my-5 bg-secondary text-white">
+        <h1>Ainara's</h1>
+    </div>
+    <!-- Inicio del contenerdor Bootstrap -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <h3>Formulario de contacto</h3>
+
+                <!-- Validación del formulario en JS -->
+
+                <form action="/detalles.html" class="was-validated" onsubmit="return validarFormulario()" method="post">
+                    <div class="mb-3 mt-3">
+                        <label for="fnombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control"  id="fnombre" placeholder="Nombre" name="fnombre" required> <!-- Recuerda poner required para que sea obligatorio introducir datos-->
+                        <div class="valid-feedback">Gracias por introducir tu nombre</div> <!-- Esto valida en bootstrap que intruducistes datos -->
+                        <div class="invalid-feedback">Te olvidaste el nombre</div> <!-- Esto valida en bootstrap que intruducistes datos -->
+                    </div>
+                    
+                    <div class="mb-3 mt-3">
+                        <label for="fapellidos" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control"  id="fapellidos" placeholder="Apellidos" name="fapellidos" required>
+                        <div class="valid-feedback">Gracias por introducir tus apelllidos</div>
+                        <div class="invalid-feedback">Te olvidaste los apellidos</div>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <label for="fcorreo" class="form-label">Correo-e</label>
+                        <input class="form-control" type="email" id="fcorreo" placeholder="Correo-e para contactarte" email="fcorreo" required>
+                        <div class="valid-feedback">Gracias por introducir tu correo-e</div>
+                        <div class="invalid-feedback">Te olvidaste el correo-e</div>
+                    </div>
+
+                    <div class="form-outline">
+                        <label for="fconsulta" class="form-label">Haznos tu consulta</label>
+                        <textarea class="form-control" id="fconsulta" rows="4" placeholder="Dinos como podemos ayudarte" name="text" required></textarea>
+                        <div class="valid-feedback">Gracias por tu consulta</div>
+                        <div class="invalid-feedback">Por favor rellena también este campo</div>
+                    </div>
+
+                    <!-- Activación del checkbox si acepta los terminos -->
+
+                    <div class="form-check mb-3">
+                        <label for="fselecciona" class="form-check-label"></label>
+                        <input class="form-check-input" type="checkbox" id="fselecciona" onchange="chequeando(valida)" name="fselecciona" value="true" required>
+                        <a href="/privacidad.html">Leo y acepto la política de privacidad</a>
+                    </div>
+                    
+                    <!-- Botón enviar se activa después de la validación del checkbox -->
+
+                    <div class="btn-group">
+                        <!--<input type="submit" onsubmit="return chequeando(valida)" id="valida" disabled="disabled" class="btn btn-success">-->
+                        <!--<button type="button" class="btn btn-secondary">Secondary</button>-->
+
+                        <!--<input type="submit" onsubmit="return chequeando(valida)" value="enviar" id="validador" disabled="disabled" >-->
+                        <button href="/index.html" type="submit">Enviar</button>
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                            Open modal
+                          </button>
+                        </div>
+                        
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                        
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title">Modal Heading</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                              </div>
+                        
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                                Modal body..
+                              </div>
+                        
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                              </div>
+                        
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>        
+    </div>
+<script src="/asset/js/script.js" type="text/javascript"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<label>First Name:<label>
+  <input id="firstname" type="text">
+  <br>
+  <label>Last Name:<label>
+  <input id="lastname" type="text">
+  <br>
+  <button id="jsonbtn" >Click to convert input to JSON</button>
+  <p id="jsontext"></p>-->
+
+  <!--<script>
+                    function estaChequeando(validador) {
+                        console.log(validador);
+                        const botonesFormulario = document.getElementById('validador');
+                        console.log(botonesFormulario)
+                        if (validador == true) {
+                            botonesFormulario.disabled = false;
+                        } else {
+                            botonesFormulario.disabled = true;
+                        }
+                    }
+
+                    </script>-->
+
+                    
+
+                    <!--<div class="btn-group">
+                        
+                        <button type="button" id="validador" class="btn btn-outline-success">Enviar</button>
+                        <button type="button" href="/privacidad.html" class="btn btn-outline-secondary">Salir</button>
+                    
+                        
+                      </div>-->
